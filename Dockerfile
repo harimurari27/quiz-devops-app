@@ -1,3 +1,8 @@
-FROM openjdk:17
-COPY target/quiz-app-1.0.jar app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+# ✅ JAVA 21 BASE IMAGE
+FROM openjdk:21-jdk-slim
+
+# ✅ COPY CORRECT JAR
+COPY target/quiz-app.jar app.jar
+
+# ✅ START APP
+ENTRYPOINT ["java", "-jar", "/app.jar"]
