@@ -1,9 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: quiz-deployment
-  labels:
-    app: quiz
+  name: quiz-app
 spec:
   replicas: 2
   selector:
@@ -15,15 +13,7 @@ spec:
         app: quiz
     spec:
       containers:
-        - name: quiz
-          image: harimurari/quiz-app:latest
-          imagePullPolicy: Always
+        - name: quiz-container
+          image: snikhil1729/quiz-app:latest
           ports:
             - containerPort: 8080
-          resources:
-            requests:
-              cpu: "250m"
-              memory: "256Mi"
-            limits:
-              cpu: "500m"
-              memory: "512Mi"
